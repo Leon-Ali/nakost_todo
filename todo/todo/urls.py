@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from todo.settings import BASE_API_PREFIX
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('users.urls')),
+    path(f'{BASE_API_PREFIX}/', include('users.urls')),
 ]
