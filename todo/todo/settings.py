@@ -30,7 +30,11 @@ SECRET_KEY = str(os.getenv('SECRET_KEY', 'secret'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.getenv('DEBUG'))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+
+# API TOKEN
+
+API_KEY = str(os.getenv('API_KEY', 'token'))
 
 
 # Application definition
@@ -59,6 +63,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # user defined middlewares
+    'todo.middlewares.ApiTokenValidationMiddleware'
 ]
 
 ROOT_URLCONF = 'todo.urls'
