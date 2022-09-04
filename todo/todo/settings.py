@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # external apps
     'rest_framework',
+    'django_filters',
 
     # user defined apps
     'tasks',
@@ -146,3 +147,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 BASE_API_PREFIX = os.getenv('BASE_API_PREFIX', 'api')
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
