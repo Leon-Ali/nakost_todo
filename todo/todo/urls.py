@@ -21,4 +21,5 @@ from todo.settings import BASE_API_PREFIX
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'{BASE_API_PREFIX}/', include('users.urls')),
+    path(f'{BASE_API_PREFIX}/', include('tasks.urls')),
 ]
