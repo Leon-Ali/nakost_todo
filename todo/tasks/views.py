@@ -36,6 +36,6 @@ class TasksCompleteView(generics.CreateAPIView):
 
         Task.objects.bulk_update(instances, ['finished'])
 
-        return Response(status=status.HTTP_201_CREATED)
+        return Response({'status': 'ok'}, status=status.HTTP_201_CREATED)
 
 
