@@ -9,14 +9,14 @@ from .serializers import TaskSerializer
 from .models import Task
 
 
-class TaskCreateView(generics.ListCreateAPIView):
+class TaskListCreateView(generics.ListCreateAPIView):
     """
-    API endpoint that allows users to be created.
+    API endpoint that allows tasks created or retrieved.
     """
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['user', 'date']  # todo add finished filter
+    filterset_fields = ['user', 'date', 'finished']
 
 
 class TasksCompleteView(generics.CreateAPIView):
